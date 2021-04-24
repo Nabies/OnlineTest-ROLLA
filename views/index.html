@@ -1,0 +1,140 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online test</title>
+    <link rel='shortcut icon' type="image/jpg" href="fevicon.jpg">
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&family=Public+Sans&display=swap');
+    </style>
+
+    <script>
+        document.addEventListener("keyup", function (e) {
+            var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+        });
+        function stopPrntScr() {
+
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+        function AccessClipboardData() {
+            try {
+                navigator.clipboard.writeText("Access   Restricted");
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        setInterval("AccessClipboardData()", 300);
+    </script>
+</head>
+
+<body oncopy="return false" onpopstate="return false">
+
+    <!-- <div> -->
+
+    <div id='logo' width='25%' height='25%'>
+         <img src='logoc.jpg' alt='logo'>
+    </div>
+
+    <div id='headerPanel'><span id='pmp'>PMP TEST</span></div>
+
+    <div class="header">
+        <!-- <center><h1 id='onlineTest' style="font-size: 3rem;	font-weight: 200;margin-top: 0; width: fit-content;padding: 5px;">ONLINE TEST</h1></center> -->
+        <table id="status" class='statusBox' style="visibility: hidden; font-size: 18px;">
+            <tr><td colspan="2" id="statusTitle" style="font-size: medium;">LEGEND</td></tr>
+            <tr>
+                <td><p id='attemptedIcon' class='icons'></p></td>
+                <td class='statusPanel' id='att'>ATTEMPTED </td>
+            </tr>
+            <tr>
+                <td><p id='unattemptedIcon' class='icons'></p></td>
+                <td class='statusPanel' id='unatt'>UNATTEMPTED </td>
+            </tr>
+            <tr>
+                <td><p id='flaggedIcon' class='icons'></p></td>
+                <td class='statusPanel' id='flgd'>REVIEW </td>
+            </tr>
+        </table>
+
+        <div id="statusNos" class='statusNoBox'>
+            <div class='count'><div id='attempted'></div><p id='attQn' class='statusLabel'>ATTEMPTED</p></div>
+            
+            <div class='count'><div id='unattempted'></div><p id='unattQn' class='statusLabel'>UNATTEMPTED</p></div>
+            
+            <div class='count'><div id='flagged'></div><p id='unattQn' class='statusLabel'>REVIEW</p></div>
+            
+        </div>
+        
+        <table id="timer" style="visibility: hidden; font-size: 1.5rem;">
+            <tr>
+                <td style="font-size: medium; font-weight: lighter;">Time left : </td>
+                <td><span id="quizTimer"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span id="score"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="watermark">ROLLA</div>
+
+    <div class="container" id='questionContainer'>
+
+        <ul id="sidebar" style="visibility: hidden;"></ul>
+
+        <div class="quiz-container" id='questionBox'>
+            <h3 id="instr" style="text-align: center; font-weight: lighter;">PLEASE READ THE INSTRUCTIONS CAREFULLY</h3>
+            <div id="instructions">
+                <ol>
+                    <li>The total duration of the test is 230 Minutes</li>
+                    <li>The countdown timer in the top right corner will display the time remaining to complete the
+                        test. When the timer reaches zero, your test will end automatically.</li>
+                    <li>Enter your Test ID and click on the ‘’START’’ button to start the test.</li>
+                    <li>Click on the ‘’NEXT’’ button to proceed to the following question and ‘’PREVIOUS’’ button to go back to the previous question.</li>
+                    <li>Marking a question for review indicates that you would like to look at that question again.</li>
+                    <li>The question Panel displayed on the right side of the screen shows the status of each question.</li>
+                    <li>Click on the ‘’SUBMIT’’ button when you are done with your test.</li>
+
+                </ol>
+            </div>
+            <section id="quiz"></section><br>
+            <hr id='hr' style="background-color: black;">
+            <!-- <p id="copyright">Copyright @Rolla 2021. All Rights Reserved.</p> -->
+
+        </div>
+
+    </div>
+
+
+
+    <div id='reviewBoxContainer'>
+        <!-- <div id='reviewBoxContent'>
+            </div> -->
+    </div>
+
+    <script src="/script.js"></script>
+
+    <!-- </div> -->
+
+    <footer id="copyrt">
+        <p>Copyright @Rolla 2021. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
